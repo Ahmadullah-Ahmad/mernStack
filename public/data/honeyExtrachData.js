@@ -1,0 +1,98 @@
+export default [
+  {
+    id: 1,
+    amount: 23,
+    BeeServiceId: 1,
+    branchId: 1,
+  },
+  {
+    id: 2,
+    amount: 25,
+    BeeServiceId: 2,
+    branchId: 1,
+  },
+  {
+    id: 3,
+    amount: 15,
+    BeeServiceId: 3,
+    branchId: 1,
+  },
+  {
+    id: 4,
+    amount: 20,
+    BeeServiceId: 4,
+    branchId: 1,
+  },
+  {
+    id: 5,
+    amount: 11,
+    BeeServiceId: 5,
+    branchId: 1,
+  },
+  {
+    id: 6,
+    amount: 13,
+    BeeServiceId: 6,
+    branchId: 1,
+  },
+  {
+    id: 7,
+    amount: 21,
+    BeeServiceId: 7,
+    branchId: 1,
+  },
+  {
+    id: 8,
+    amount: 32,
+    BeeServiceId: 8,
+    branchId: 2,
+  },
+  {
+    id: 9,
+    amount: 22,
+    BeeServiceId: 9,
+    branchId: 2,
+  },
+  {
+    id: 10,
+    amount: 20,
+    BeeServiceId: 10,
+    branchId: 2,
+  },
+  {
+    id: 11,
+    amount: 10,
+    BeeServiceId: 11,
+    branchId: 2,
+  },
+  {
+    id: 12,
+    amount: 16,
+    BeeServiceId: 12,
+    branchId: 2,
+  },
+  {
+    id: 13,
+    amount: 18,
+    BeeServiceId: 8,
+    branchId: 2,
+  },
+  {
+    id: 14,
+    amount: 31,
+    BeeServiceId: 10,
+    branchId: 2,
+  },
+  {
+    id: 15,
+    amount: 15,
+    BeeServiceId: 5,
+    branchId: 1,
+  },
+  {
+    id: 16,
+    amount: 24,
+    BeeServiceId: 2,
+    branchId: 1,
+  },
+];
