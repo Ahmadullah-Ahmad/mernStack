@@ -65,15 +65,6 @@ function KeepHoney() {
         className="flex items-center  darkModeTop bg-gray-300 gap-4 p-1 "
         onSubmit={handleSubmit(handlSearch)}
       >
-        <div className="darkModeMiddle rounded-md">
-          <Input
-            type="date"
-            color="blue"
-            label="جستجو با تاریخ"
-            {...register("date")}
-            className="darkModeMiddle"
-          />
-        </div>
         <div className="pl-5">
           <Button
             size="md"
@@ -84,6 +75,15 @@ function KeepHoney() {
           >
             جستجو
           </Button>
+        </div>
+        <div className="darkModeMiddle rounded-md">
+          <Input
+            type="date"
+            color="blue"
+            label="جستجو با تاریخ"
+            {...register("date")}
+            className="darkModeMiddle"
+          />
         </div>
       </form>
       <div>

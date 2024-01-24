@@ -1,6 +1,6 @@
 import { Typography } from "@material-tailwind/react";
 import Table from "../../UI/Table";
-import { formatCurrency } from "../../utils/helpers";
+import { formatCurrency, formatQuantity } from "../../utils/helpers";
 import { format } from "date-fns";
 
 function CustomerSaleRow({ item, borderKey }) {
@@ -9,7 +9,7 @@ function CustomerSaleRow({ item, borderKey }) {
   return (
     <>
       <Table.Row>
-        <td className={`${className} pl-2 capitalize`}>
+        <td className={`${className} pr-2 capitalize`}>
           <Typography variant="small">{item?.product?.name}</Typography>
         </td>
         <td className={`${className} capitalize `}>
@@ -29,7 +29,9 @@ function CustomerSaleRow({ item, borderKey }) {
           </div>
         </td>
         <td className={`${className} capitalize`}>
-          <Typography variant="small">{item?.quantity}</Typography>
+          <Typography variant="small">
+            {formatQuantity(item?.quantity)}
+          </Typography>
         </td>
 
         <td className={`${className} capitalize`}>

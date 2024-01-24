@@ -25,7 +25,6 @@ function CustomerDatails() {
   const totalLoanOnCustomer = customer?.Sales?.filter(
     (el) => el?.pay === false
   ).reduce((pre, cur) => cur.quantity * cur.price + pre, 0);
-  console.log(customer);
   if (isLoading)
     return (
       <div className="flex items-center h-[100dvh] w-full justify-center">
@@ -42,8 +41,8 @@ function CustomerDatails() {
       />
       <div>
         <div className="flex justify-center md:flex-row flex-col">
-          <DetailsCard title={"Name"} value={customer?.name} />
-          <DetailsCard title={"phone"} value={customer?.phone} />
+          <DetailsCard title={"نام"} value={customer?.name} />
+          <DetailsCard title={"شمار تلیفون"} value={customer?.phone} />
         </div>
       </div>
       <div className="md:grid md:grid-cols-2 sm:flex sm:flex-col gap-2 pt-2 flex-col">
@@ -52,11 +51,11 @@ function CustomerDatails() {
           {customer?.Sales?.length !== 0 ? (
             <div className="flex justify-between items-center p-1">
               <Typography variant="small">
-                Total Sales:
+                مجموعه فروش:
                 <span className="px-2">{formatCurrency(totalSales)}</span>
               </Typography>
               <Typography variant="small">
-                Total Loan:
+                مجموعه قرض:
                 <span className="px-2">
                   {formatCurrency(totalLoanOnCustomer)}
                 </span>
@@ -72,11 +71,11 @@ function CustomerDatails() {
           {customer?.purchase?.length !== 0 ? (
             <div className="flex justify-between items-center p-1">
               <Typography variant="small">
-                Total Purchase:
+                مجموعه خریداری:
                 <span className="px-2">{formatCurrency(totalPurchase)}</span>
               </Typography>
               <Typography variant="small">
-                Total Loan:
+                مجموعه قرض:
                 <span className="px-2">{formatCurrency(totalLoanOnMe)}</span>
               </Typography>
             </div>

@@ -15,16 +15,21 @@ function CustomerSaleRow({ item, borderKey }) {
         <div>
           {formatCurrency(item?.price * item?.quantity)}{" "}
           {item?.pay ? (
+            "✔"
+          ) : (
+            <span className="text-xs text-red-400">(قرض)</span>
+          )}
+          {/* {item?.pay ? (
             ""
           ) : (
             <p
               className={`text-[10px] mx-auto text-justify ${
-                item?.pay ? "" : "text-red-400"
+                item?.pay ? "✔" : "text-red-400"
               }`}
             >
               you should pay
             </p>
-          )}
+          )} */}
         </div>
       </td>
       <td className={`${className} capitalize `}>

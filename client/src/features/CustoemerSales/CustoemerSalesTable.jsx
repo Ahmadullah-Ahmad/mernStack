@@ -2,25 +2,25 @@ import { Typography } from "@material-tailwind/react";
 import Table from "../../UI/Table";
 import Pagination from "../../UI/Pagination";
 import CustomerSaleRow from "./CustomerSaleRow";
-const customerSaleHeader = ["name", "price", "quantity", "date"];
+const customerSaleHeader = ["نام", "قیمت", "مقدار", "تاریخ"];
 
 function CustoemerSalesTable({ product, count }) {
   if (product?.length === 0)
     return (
       <div>
         <Typography variant="h5" className="text-center uppercase">
-          Customer Purchase
+          فروش مشتری
         </Typography>
 
         <Typography className="flex text-red-200 py-4 justify-center font-bold uppercase  mt-8 text-xl items-center">
-          sales is found
+          فروش ندارد
         </Typography>
       </div>
     );
   return (
-    <div>
+    <div dir="rtl">
       <Typography variant="h5" className="text-center">
-        Customer Sales
+        فروش مشتری
       </Typography>
       <div className="">
         <Table>
@@ -30,7 +30,7 @@ function CustoemerSalesTable({ product, count }) {
                 <Typography
                   variant="small"
                   className={`font-semibold uppercase ${
-                    index === 0 ? "pl-2" : ""
+                    index === 0 ? "pr-2" : ""
                   }`}
                 >
                   {el}

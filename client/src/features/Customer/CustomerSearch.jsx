@@ -17,14 +17,6 @@ function CustomerSearch() {
       className="md:flex items-center justify-end darkModeTop hidden bg-gray-300 gap-4 py-1 pr-3"
       onSubmit={handleSubmit(handlSearch)}
     >
-      <div>
-        <Input
-          type="text"
-          color="blue"
-          label="جستجو با نام مشتری"
-          {...register("name", { required: true })}
-        />
-      </div>
       <div className="pl-5">
         <Button
           size="md"
@@ -35,6 +27,15 @@ function CustomerSearch() {
         >
           جستجو
         </Button>
+      </div>
+      <div>
+        <Input
+          type="text"
+          color="blue"
+          dir="rtl"
+          label="جستجو با نام مشتری"
+          {...register("name", { required: true })}
+        />
       </div>
     </form>
   );

@@ -30,6 +30,7 @@ function KeepHoney() {
   return (
     <Card className="grid h-full grid-rows-[auto_1fr] bg-gray-300 darkModeTop rounded-sm shadow-none">
       <div className="flex justify-between px-1 items-center">
+        <CustomerSearch />
         <Filter
           filterField={"loan"}
           options={[
@@ -38,7 +39,6 @@ function KeepHoney() {
             { value: "lender", label: "قرض‌ دهنده‌ " },
           ]}
         />
-        <CustomerSearch />
       </div>
       <div>
         <Customer />
