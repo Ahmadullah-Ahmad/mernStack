@@ -1,18 +1,6 @@
-import {
-  IconButton,
-  Menu,
-  MenuHandler,
-  MenuItem,
-  MenuList,
-  Typography,
-} from "@material-tailwind/react";
+import { MenuItem, Typography } from "@material-tailwind/react";
 import { useState } from "react";
-import {
-  HiArrowTopRightOnSquare,
-  HiEllipsisVertical,
-  HiPencil,
-  HiTrash,
-} from "react-icons/hi2";
+import { HiArrowTopRightOnSquare, HiPencil, HiTrash } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import Model from "../../UI/Model";
 import Table from "../../UI/Table";

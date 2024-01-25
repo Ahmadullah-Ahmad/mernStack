@@ -6,11 +6,9 @@ import { useSearchParams } from "react-router-dom";
 import Pagination from "../../UI/Pagination";
 import Model from "../../UI/Model";
 import CustomerForm from "./CustomerForm";
-import { formatCurrency } from "../../utils/helpers";
 const customerHeader = ["نام", "شماره", "فروش", "خرید", ""].reverse();
 function CustomerTable() {
   const { Customers, count, isLoading } = useCustomers();
-  console.log(count);
   const LoanOnMe = count
     ?.map((loan) =>
       loan?.purchase

@@ -24,7 +24,6 @@ function Sales() {
     }
     return el;
   });
-  console.log(chartLabel);
   const { goBack } = Back();
   if (isLoading || productLoading)
     return (

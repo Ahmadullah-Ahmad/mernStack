@@ -10,7 +10,6 @@ export async function getAllSales({ page, type, sort }) {
         headers: { Authorization: getToken("jwt") },
       }
     );
-    console.log(data.data.length);
     return { data: data.data.branchSales, count: data.data.length };
   } catch (error) {
     console.log(error);

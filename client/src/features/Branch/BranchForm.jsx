@@ -13,7 +13,6 @@ function BranchForm({ close, formData: branch = {} }) {
   });
   const { errors } = formState;
   const queryClient = useQueryClient();
-  console.log(branch);
   const { addNewBranch, isAdding } = useAddBranch();
   const { EditBranch, isEditting } = useEditBranch();
   function handleFormSubmit(data) {

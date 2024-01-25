@@ -22,7 +22,6 @@ function Product() {
     }
     return el;
   });
-  console.log(chartLabel);
   const { goBack } = Back();
   if (isLoading || productLoading)
     return (

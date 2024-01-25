@@ -12,7 +12,6 @@ import { Back } from "../../hooks/Back";
 function KeepDetails() {
   const { keepOne, isLoading } = useKeepOne();
   const { goBack } = Back();
-  console.log(keepOne);
   if (isLoading)
     return (
       <div className="flex items-center h-[100dvh] w-full justify-center">

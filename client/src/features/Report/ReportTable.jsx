@@ -23,7 +23,6 @@ function ReportTable() {
     (pre, cur) => pre + cur.price * cur.quantity,
     0
   );
-  console.log(Report);
   const totalQuantity = Report?.reduce((pre, cur) => pre + cur.quantity, 0);
   const price = Report?.reduce((pre, cur) => pre + cur.amount, 0);
   const headerColumns = type !== "spend" ? colums : header;
