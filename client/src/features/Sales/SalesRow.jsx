@@ -14,7 +14,8 @@ function SaleRow({ item, borderKey }) {
     borderKey ? "" : "border-b border-blue-gray-50 dark:border-gray-900"
   }`;
   const { user } = useUser();
-  const total = item.price * item.quantity;
+  const total =
+    (item?.price - (item?.price * item?.discount) / 100) * item.quantity;
 
   const EditObject = {
     id: item.id,
@@ -104,7 +105,7 @@ function SaleRow({ item, borderKey }) {
         </td>
         <td className={`${className} capitalize  pr-2`}>
           <Typography variant="small" className="text-lg">
-            {item.product.name}
+            {item.product?.name}
           </Typography>
         </td>
       </Table.Row>
@@ -112,7 +113,7 @@ function SaleRow({ item, borderKey }) {
         open={openModel}
         disabled={isDeleting}
         onDelete={deleteItem}
-        resourceName={` جنس ${item.product.name} فروختشده `}
+        resourceName={` جنس ${item.product?.name} فروختشده `}
         close={setOpenModel}
       />
     </>

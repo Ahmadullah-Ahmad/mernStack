@@ -1,25 +1,19 @@
 import { Op, Sequelize } from "sequelize";
 import catchAsynC from "../utils/catchAsynC.js";
-import Product from "../models/product.js";
 
 export const countAllProduct = catchAsynC(async (req, res, next) => {
-  const startDate = req.query.start;
-  const endDate = req.query.end;
-
-  const where = {};
-  where.createdAt = {
-    [Op.between]: [startDate, endDate],
-  };
   const product = await req.branch.getProduct({
     attributes: ["id", "name", "quantity", "type"],
   });
   const boxes = await req.branch.getBeeSave({
-    attributes: ["id", "boxes"],
+    attributes: ["id", "boxes", "branchId"],
   });
   const purchase = await req.branch.getPurchase({
-    attributes: ["id", "price", "createdAt"],
+    where: { productId: { [Op.not]: null } },
+    attributes: ["id", "price", "quantity", "createdAt"],
   });
   const sales = await req.branch.getSales({
+    where: { productId: { [Op.not]: null } },
     attributes: ["id", "createdAt", "quantity", "discount", "price"],
   });
 

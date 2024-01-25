@@ -40,7 +40,7 @@ function DashboardLayout() {
 
   // total purchase
   const totalPurchase = data?.purchase?.reduce(
-    (pre, cur) => pre + cur?.price,
+    (pre, cur) => pre + cur?.price * cur?.quantity,
     0
   );
 

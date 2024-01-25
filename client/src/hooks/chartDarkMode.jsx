@@ -10,8 +10,6 @@ export function useChartDarkMode() {
     const chartContainer = document.querySelector(".apexcharts-yaxis-label");
     if (chartContainer) {
       if (isDark) {
-        console.log("Dark");
-        console.log(chartContainer.fill);
         tooltipContainer.classList.remove("apexcharts-theme-light");
         tooltipContainer.classList.add("apexcharts-theme-dark");
         xaxisTooltip.classList.remove("apexcharts-theme-light");
