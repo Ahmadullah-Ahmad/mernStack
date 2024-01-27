@@ -9,7 +9,7 @@ function SideBar() {
   const filterRouter =
     user?.role === "admin"
       ? route
-      : route.filter((el) => el.path !== "branch" && el.path !== "users");
+      : route.filter((el) => el.path !== "نمایندگی" && el.path !== "کارمندان");
   return (
     <>
       <Card className=" grid h-full grid-rows-[auto_1fr] rounded-sm shadow-none darkModeMiddle bg-gray-50">
@@ -21,7 +21,7 @@ function SideBar() {
               classNames={"rounded-full"}
             />
 
-            <Typography>نام شرکت</Typography>
+            <Typography className="font-semibold">افظلی عسل فروشی</Typography>
           </div>
         </div>
         <div className="p-1 ">

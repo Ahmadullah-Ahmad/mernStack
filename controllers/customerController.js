@@ -110,9 +110,10 @@ export const getAllCustomer = catchAsynC(async (req, res, next) => {
 });
 
 export const getOneCustomer = catchAsynC(async (req, res, next) => {
-  const limit = req.query.limit * 1 || 6;
+  const limit = req.query.limit * 1 || 5;
   const page = req.query.page * 1 || 1;
   const skip = (page - 1) * limit;
+
   const customer = await Customer.findOne({
     where: { id: req.params.id },
     include: [
@@ -151,11 +152,29 @@ export const getOneCustomer = catchAsynC(async (req, res, next) => {
   });
   const customerSale = await customer.getSales();
   const customerPurchase = await customer.getPurchase();
+  const customerDetails = await Customer.findOne({
+    where: { id: req.params.id },
+    include: [
+      {
+        model: Sale,
+        as: "Sales",
+        attributes: ["id", "quantity", "price", "pay"],
+      },
+      {
+        model: Purchase,
+        as: "purchase",
+        attributes: ["id", "quantity", "price", "pay"],
+
+        left: true,
+      },
+    ],
+  });
   res.status(200).json({
     status: "success",
     sale: customerSale.length,
     purchase: customerPurchase.length,
     customer,
+    customerDetails,
   });
 });
 

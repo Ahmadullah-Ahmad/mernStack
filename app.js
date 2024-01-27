@@ -36,8 +36,8 @@ import purchaseModel from "./models/purchase.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(compression());
-app.use(helmet());
+// app.use(compression());
+// app.use(helmet());
 const currentModulePath = fileURLToPath(import.meta.url);
 const currentDirPath = dirname(currentModulePath);
 

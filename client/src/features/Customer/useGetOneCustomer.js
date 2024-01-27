@@ -14,6 +14,7 @@ export function useCustomerOne() {
     count: data?.count,
     sale: data?.sale,
     purchase: data?.purchase,
+    customerStatistic: data?.customerDetails,
     isLoading,
   };
 }

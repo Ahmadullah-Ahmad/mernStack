@@ -3,6 +3,7 @@ import { HiOutlineArrowLeft } from "react-icons/hi2";
 import { URL } from "../../utils/constant";
 import { NavLink } from "react-router-dom";
 function AdvetisCard({ item }) {
+  console.log(URL + item.photo);
   return (
     <Card
       color="transparent"
@@ -11,7 +12,7 @@ function AdvetisCard({ item }) {
     >
       <div className="flex justify-center">
         <img
-          src={URL + item.photo}
+          src={`${URL + item.photo}`}
           alt="product"
           width={180}
           className="rounded-lg w-full sm:h-32 object-cover object-center"

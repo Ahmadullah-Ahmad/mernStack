@@ -81,12 +81,16 @@ function PurchaseRow({ item, borderKey }) {
           </Typography>
         </td>
 
-        <td className={`${className} capitalize `} dir="rtl">
-          <Typography
-            variant="small"
-            className={`${item?.pay ? "text-blue-300" : "text-red-300"}`}
-          >
-            {formatCurrency(item.price)} {item.pay ? "✔" : ""}
+        <td className={`${className} capitalize relative `} dir="rtl">
+          <Typography variant="small" className={``}>
+            {formatCurrency(item.price)}{" "}
+            <span
+              className={`absolute bottom-0 right-2 text-[10px]  ${
+                item?.pay ? "text-blue-300" : "text-red-300"
+              }`}
+            >
+              {item.pay ? "" : "(قرض)"}
+            </span>
           </Typography>
         </td>
 

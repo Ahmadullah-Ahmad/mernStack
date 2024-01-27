@@ -6,23 +6,27 @@ import CustoemerSalesTable from "../CustoemerSales/CustoemerSalesTable";
 import CustomerPurchaseTable from "../CustoemerPurchase/CustoemerPuchaseTable";
 import { formatCurrency } from "../../utils/helpers";
 import { HiOutlineArrowLeft } from "react-icons/hi2";
+import Pagination from "../../UI/Pagination";
 
 function CustomerDatails() {
-  const { customer, purchase, sale, isLoading } = useCustomerOne();
+  const { customer, purchase, sale, isLoading, customerStatistic } =
+    useCustomerOne();
+  const count = sale > purchase ? sale : purchase;
+
   const { goBack } = Back();
-  const totalPurchase = customer?.purchase?.reduce(
+  const totalPurchase = customerStatistic?.purchase?.reduce(
     (pre, cur) => cur.price * cur.quantity + pre,
     0
   );
-  const totalLoanOnMe = customer?.purchase
+  const totalLoanOnMe = customerStatistic?.purchase
     ?.filter((el) => el?.pay === false)
     .reduce((pre, cur) => cur.quantity * cur.price + pre, 0);
 
-  const totalSales = customer?.Sales?.reduce(
+  const totalSales = customerStatistic?.Sales?.reduce(
     (pre, cur) => cur.price * cur.quantity + pre,
     0
   );
-  const totalLoanOnCustomer = customer?.Sales?.filter(
+  const totalLoanOnCustomer = customerStatistic?.Sales?.filter(
     (el) => el?.pay === false
   ).reduce((pre, cur) => cur.quantity * cur.price + pre, 0);
   if (isLoading)
@@ -81,6 +85,9 @@ function CustomerDatails() {
             </div>
           ) : null}
         </div>
+      </div>
+      <div className="flex w-full justify-center">
+        <Pagination count={count} pageSize={5} />
       </div>
     </Card>
   );

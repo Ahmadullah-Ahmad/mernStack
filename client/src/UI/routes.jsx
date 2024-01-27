@@ -28,14 +28,14 @@ const route = [
     icon: <HiOutlineShoppingBag size={20} />,
   },
   {
-    path: "خدمات",
-    url: "dashboard/service",
-    icon: <HiOutlineAdjustmentsHorizontal size={20} />,
-  },
-  {
     path: "خریداری",
     url: "dashboard/get",
     icon: <HiOutlineShoppingCart size={20} />,
+  },
+  {
+    path: "خدمات",
+    url: "dashboard/service",
+    icon: <HiOutlineAdjustmentsHorizontal size={20} />,
   },
 
   {

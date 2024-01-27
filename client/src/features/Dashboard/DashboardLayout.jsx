@@ -32,7 +32,7 @@ function DashboardLayout() {
   );
   // total honey
   const totalHoney = data?.product
-    ?.filter((el) => el?.type === "شهت")
+    ?.filter((el) => el?.type === "شهت" || el?.type === "عسل")
     ?.reduce((pre, cur) => pre + cur?.quantity, 0);
 
   // total boxes

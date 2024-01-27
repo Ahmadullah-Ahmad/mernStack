@@ -23,7 +23,7 @@ function HoneyForm({ close, formData: extract = {}, keepId }) {
   // const [productName, setProductName] = useState("");
   const { products } = useCompleteProducts();
   const product = products?.filter(
-    (el) => el.type === "شهت" || el.type === "ګورده"
+    (el) => el.type === "شهت" || el.type === "ګورده" || el.type === "عسل"
   );
   const { errors } = formState;
   const queryClient = useQueryClient();
@@ -132,8 +132,8 @@ function HoneyForm({ close, formData: extract = {}, keepId }) {
                   labelProps={{ className: "before:w-full" }}
                   dir="rtl"
                 >
-                  <Option value={"شهت"} dir="rtl">
-                    شهت
+                  <Option value={"عسل"} dir="rtl">
+                    عسل
                   </Option>
                   <Option value={"ګورده"}>کورده</Option>
                 </Select>

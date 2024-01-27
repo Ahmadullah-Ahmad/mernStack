@@ -9,35 +9,35 @@ function CustomerSaleRow({ item, borderKey }) {
   return (
     <>
       <Table.Row>
-        <td className={`${className} pr-2 capitalize`}>
-          <Typography variant="small">{item?.product?.name}</Typography>
-        </td>
-        <td className={`${className} capitalize `}>
-          <div>
-            {formatCurrency(item?.price * item?.quantity)}{" "}
-            {item?.pay ? (
-              ""
-            ) : (
-              <p
-                className={`text-[10px] mx-auto text-justify ${
-                  item?.pay ? "" : "text-red-400"
-                }`}
-              >
-                He should pay
-              </p>
-            )}
-          </div>
-        </td>
-        <td className={`${className} capitalize`}>
-          <Typography variant="small">
-            {formatQuantity(item?.quantity)}
-          </Typography>
-        </td>
-
         <td className={`${className} capitalize`}>
           <Typography variant="small">
             {format(new Date(item?.createdAt), "yyyy-MM-dd")}
           </Typography>
+        </td>
+        <td className={`${className} capitalize`}>
+          <Typography variant="small" dir="rtl">
+            {formatQuantity(item?.quantity)}
+          </Typography>
+        </td>
+        <td className={`${className} capitalize relative`}>
+          <div dir="rtl">
+            {formatCurrency(item?.price * item?.quantity)}{" "}
+            {item?.pay ? (
+              ""
+            ) : (
+              <span
+                className={`absolute bottom-0 right-2 text-[10px]  ${
+                  item?.pay ? "" : "text-red-300"
+                }`}
+              >
+                {item.pay ? "" : "(قرض)"}
+              </span>
+            )}
+          </div>
+        </td>
+
+        <td className={`${className} pr-2 capitalize`}>
+          <Typography variant="small">{item?.product?.name}</Typography>
         </td>
       </Table.Row>
     </>

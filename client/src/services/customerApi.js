@@ -25,6 +25,7 @@ export async function getOneCustomer({ page, id }) {
       data: data.data.customer,
       sale: data.data.sale,
       purchase: data.data.purchase,
+      customerDetails: data.data.customerDetails,
     };
   } catch (error) {
     throw new Error(error.response.data.message);

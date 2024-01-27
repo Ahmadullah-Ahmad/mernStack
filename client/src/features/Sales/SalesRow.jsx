@@ -65,7 +65,7 @@ function SaleRow({ item, borderKey }) {
         <td className={`${className} `} dir="rtl">
           <Typography variant="small">{formatCurrency(total)} </Typography>
         </td>
-        <td className={`${className} capitalize  `}>
+        {/* <td className={`${className} capitalize  `}>
           <Typography
             variant="small"
             className={`text-lg ${
@@ -74,14 +74,24 @@ function SaleRow({ item, borderKey }) {
           >
             {item.pay ? "نغد" : "قرض"}
           </Typography>
-        </td>
+        </td> */}
         <td className={`${className} capitalize `} dir="rtl">
           <Typography variant="small">
             {formatQuantity(item.quantity)}
           </Typography>
         </td>
-        <td className={`${className} capitalize `} dir="rtl">
-          <Typography variant="small">{formatCurrency(item.price)}</Typography>
+        <td className={`${className} capitalize relative`} dir="rtl">
+          <Typography variant="small">
+            {formatCurrency(item.price)}
+            <Typography
+              variant="small"
+              className={`absolute bottom-0 right-2 text-[10px] ${
+                item.pay ? "" : "text-red-300"
+              }`}
+            >
+              {item.pay ? "" : "(قرض)"}
+            </Typography>
+          </Typography>
         </td>
 
         <td className={`${className} capitalize text-base darkModeMiddle  `}>
