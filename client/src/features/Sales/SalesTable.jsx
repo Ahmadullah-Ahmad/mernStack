@@ -59,7 +59,7 @@ function SaleTable() {
               ))}
             </Table.Body>
             <Table.Footer>
-              <Pagination count={count} pageSize={7} />
+              <Pagination count={count} pageSize={6} />
             </Table.Footer>
           </Table>
 

@@ -71,7 +71,7 @@ function PurchaseTable({ title }) {
               ))}
             </Table.Body>
             <Table.Footer>
-              <Pagination count={count} />
+              <Pagination count={count} pageSize={6} />
             </Table.Footer>
           </Table>
 

@@ -151,7 +151,7 @@ export const deleteSale = catchAsynC(async (req, res, next) => {
 
 export const getAllSales = catchAsynC(async (req, res, next) => {
   //pagination
-  const limit = req.query.limit * 1 || 7;
+  const limit = req.query.limit * 1 || 6;
   const page = req.query.page * 1 || 1;
   const skip = (page - 1) * limit;
 

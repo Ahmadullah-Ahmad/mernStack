@@ -145,7 +145,7 @@ export const deletePurchase = catchAsynC(async (req, res, next) => {
 });
 export const getAllPurchase = catchAsynC(async (req, res, next) => {
   //pagination
-  const limit = req.query.limit * 1 || 7;
+  const limit = req.query.limit * 1 || 6;
   const page = req.query.page * 1 || 1;
   const skip = (page - 1) * limit;
 
@@ -162,30 +162,26 @@ export const getAllPurchase = catchAsynC(async (req, res, next) => {
     options.order.push([feild, direction]);
   }
   // filtering
-  const type = req.query.get === "null" ? undefined : req.query.get;
+  const type = req.query.type === "null" ? undefined : req.query.type;
 
+  const ProductAssociation = {
+    model: Product,
+    right: true,
+    as: "product",
+    attributes: ["id", "name", "type"],
+  };
   const filter = {};
-
   if (type) {
     const where = {};
-    const endDate = new Date();
-    const startDate = new Date(Date.now());
-    startDate.setDate(startDate.getDate() - type);
-
-    where.createdAt = {
-      [Op.between]: [startDate, endDate],
-    };
-    options.where = where;
+    where.type = type;
+    ProductAssociation.where = where;
     filter.where = where;
   }
   const branchPurchase = await req.branch.getPurchase({
     ...options,
     include: [
       {
-        model: Product,
-        right: true,
-        as: "product",
-        attributes: ["id", "name", "type"],
+        ...ProductAssociation,
       },
       {
         model: customerModel,
@@ -195,7 +191,9 @@ export const getAllPurchase = catchAsynC(async (req, res, next) => {
       { model: branchModel, as: "branch", right: true },
     ],
   });
-  const length = await req.branch.getPurchase(filter);
+  const length = await req.branch.getPurchase({
+    include: [ProductAssociation],
+  });
   res.status(200).json({
     status: "success",
     length: length?.length,

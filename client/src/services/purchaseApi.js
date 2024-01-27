@@ -2,16 +2,17 @@ import axios from "axios";
 import { URL } from "../utils/constant";
 import { getToken } from "../utils/getToken";
 
-export async function getAllPurchase({ page, get, sort }) {
+export async function getAllPurchase({ page, type, sort }) {
   try {
     const data = await axios.get(
-      `${URL}api/v1/purchase?page=${page}&sort=${sort}&get=${get}`,
+      `${URL}api/v1/purchase?page=${page}&sort=${sort}&type=${type}`,
       {
         headers: { Authorization: getToken("jwt") },
       }
     );
     return { data: data.data.branchPurchase, count: data.data.length };
   } catch (error) {
+    console.log(error);
     throw new Error(error.response.data.message);
   }
 }

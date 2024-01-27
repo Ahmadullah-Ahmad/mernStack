@@ -1,6 +1,6 @@
 import { Button, Card, Spinner } from "@material-tailwind/react";
 import PurchaseTable from "../features/Purchase/purchaseTable";
-import Filter from "../UI/Filter";
+import NavBarMenu from "../UI/NavBarMenu";
 import SortBy from "../UI/SortBy";
 import Model from "../UI/Model";
 import Empty from "../UI/Empty";
@@ -11,6 +11,14 @@ import { HiArrowLeft } from "react-icons/hi2";
 
 function Purchase() {
   const { purchases, isLoading } = usePurchase();
+
+  let purchaseCategories = ["همه"];
+  purchases?.filter((el) => {
+    if (!purchaseCategories.includes(el.product.type.toUpperCase())) {
+      return purchaseCategories.push(el.product.type.toUpperCase());
+    }
+    return el;
+  });
   const { goBack } = Back();
   if (isLoading)
     return (
@@ -64,14 +72,7 @@ function Purchase() {
           ]}
         />
         <div className="pl-5">
-          <Filter
-            filterField={"get"}
-            options={[
-              { value: "all", label: "همه" },
-              { value: 7, label: "هفت روز" },
-              { value: 30, label: "سی روز" },
-            ]}
-          />
+          <NavBarMenu routes={purchaseCategories} />
         </div>
       </div>
       <PurchaseTable title={"Purchase Things"} />
