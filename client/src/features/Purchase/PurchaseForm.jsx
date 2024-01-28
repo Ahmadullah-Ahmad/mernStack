@@ -166,19 +166,10 @@ function PurchaseForm({ close, formData: purchase = {} }) {
           {errors?.root?.message}
         </div>
 
-        {/* <div className="py-2">
-          <Checkbox
-            label={<Typography className="dark:text-white">تاديه</Typography>}
-            color="blue"
-            className="dark:text-white"
-            value={true}
-            {...register("pay")}
-          />
-        </div> */}
         <div className="py-2 flex relative justify-end">
           <Checkbox
             label={
-              <Typography className="absolute top-4 right-10 items-center text-lg">
+              <Typography className="absolute top-4 right-10 dark:text-white items-center text-lg">
                 تادیه
               </Typography>
             }

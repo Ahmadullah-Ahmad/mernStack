@@ -47,8 +47,9 @@ function KeepForm({ close, formData: keeps = {} }) {
           <Input
             color="light-blue"
             type="text"
-            className="dark:text-white font-semibold"
+            className="dark:text-white"
             label="نام مشتری"
+            dir="rtl"
             {...register("name", {
               required: true,
             })}
@@ -60,8 +61,9 @@ function KeepForm({ close, formData: keeps = {} }) {
           <Input
             color="light-blue"
             type="text"
-            className="dark:text-white font-semibold"
+            className="dark:text-white"
             label="شماره تلیفون"
+            dir="rtl"
             {...register("phone", {
               required: "The phone name is required",
             })}

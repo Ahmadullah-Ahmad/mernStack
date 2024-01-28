@@ -145,7 +145,7 @@ function HoneyForm({ close, formData: sales = {} }) {
         <div className="py-2 flex relative justify-end">
           <Checkbox
             label={
-              <Typography className="absolute top-4 right-10 items-center text-lg">
+              <Typography className="absolute top-4 dark:text-white right-10 items-center text-lg">
                 تادیه
               </Typography>
             }
