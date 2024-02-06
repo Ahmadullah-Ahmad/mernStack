@@ -56,6 +56,16 @@ const productModel = sequelize.define(
         },
       },
     },
+    advantage: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "لطفا فصیده مفاد داخل کنید",
+        },
+      },
+    },
     photo: { type: DataTypes.STRING, defaultValue: "No Image" },
     branchId: {
       type: DataTypes.INTEGER,

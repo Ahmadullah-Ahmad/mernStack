@@ -92,6 +92,7 @@ function KeepForm({ close, formData: keeps = {} }) {
             color="light-blue"
             className="dark:text-white"
             type="number"
+            min={0}
             label="تعداد صندوق"
             {...register("boxes", {
               required: "The material name is required",
@@ -105,6 +106,7 @@ function KeepForm({ close, formData: keeps = {} }) {
             color="light-blue"
             type="number"
             label="مقدار کرایه"
+            min={0}
             className="dark:text-white"
             {...register("rent", {
               required: "The rent is required",

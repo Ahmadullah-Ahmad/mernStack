@@ -112,6 +112,7 @@ function CategoryForm({ close, formData: product = {} }) {
             className="dark:text-white"
             label="قیمت جنس"
             dir="rtl"
+            min={0}
             {...register("salePrice", {
               required: "The product name is required",
             })}
@@ -123,8 +124,24 @@ function CategoryForm({ close, formData: product = {} }) {
             color="light-blue"
             type="number"
             className="dark:text-white"
+            label="فایده جنس به فصدی"
+            max={100}
+            min={0}
+            dir="rtl"
+            {...register("advantage", {
+              required: "The product name is required",
+            })}
+            error={errors?.advantage ? true : false}
+          />
+        </div>
+        <div className="py-2">
+          <Input
+            color="light-blue"
+            type="number"
+            className="dark:text-white"
             label="مقدار جنس"
             dir="rtl"
+            min={0}
             {...register("quantity", {
               required: "The product name is required",
             })}
@@ -138,6 +155,7 @@ function CategoryForm({ close, formData: product = {} }) {
                 color="light-blue"
                 type="number"
                 dir="rtl"
+                min={0}
                 label="قیمت خریداری"
                 className="dark:text-white"
                 {...register("buyPrice", {

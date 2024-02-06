@@ -5,16 +5,13 @@ import { Op } from "sequelize";
 
 export const getSalesForReport = catchAsynC(async (req, res, next) => {
   //filtering
-  const startDate = req.query.start;
-  const endDate = req.query.end;
+  const startDate = new Date(req.query.start);
+  const endDate = new Date(Date.now());
   const type = req.query.type || "sales";
-  console.log(type, startDate, endDate);
-
-  const where = {};
-  where.createdAt = {
-    [Op.between]: [startDate, endDate],
+  // console.log(new Date(startDate));
+  const where = {
+    where: { createdAt: { [Op.between]: [startDate, endDate] } },
   };
-  // filtering
 
   let data;
   if (type === "sales") {
@@ -52,7 +49,6 @@ export const getSalesForReport = catchAsynC(async (req, res, next) => {
   if (type === "spend") {
     data = await req.branch.getSpend({ ...where });
   }
-
   res.status(200).json({
     status: "success",
     type,

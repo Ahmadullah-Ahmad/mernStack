@@ -8,7 +8,7 @@ export function useDashboardData() {
     ? 7
     : Number(searchParams.get("last"));
 
-  const queryDate = subDays(new Date(), numberDays).toISOString();
+  const queryDate = subDays(new Date(Date.now()), numberDays);
   const { data, isLoading } = useQuery({
     queryKey: ["dashboard", `last-${numberDays}`],
     queryFn: () => dashboardData({ queryDate }),

@@ -21,7 +21,6 @@ function UpdatePassword() {
 
   const { register, formState, handleSubmit, getValues, reset } = useForm();
   const { errors } = formState;
-  console.log(formState);
   const { isUpdating, updatePassword } = useChangePassword();
   function handleFormSubmit(data) {
     updatePassword({ data });
@@ -75,7 +74,7 @@ function UpdatePassword() {
           <Input
             dir="rtl"
             type={hidePassword ? "password" : "text"}
-            id="password"
+            id="currentPassword"
             color="blue"
             className="dark:text-white"
             label=" پسورد جدید را داخل کنید"

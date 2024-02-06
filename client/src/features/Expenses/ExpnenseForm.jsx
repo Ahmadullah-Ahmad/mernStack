@@ -88,6 +88,7 @@ function ExpnenseForm({ close, formData: spends = {} }) {
             dir="rtl"
             color="light-blue"
             type="number"
+            min={0}
             className="dark:text-white"
             label="مقدار پیسه"
             {...register("amount", {

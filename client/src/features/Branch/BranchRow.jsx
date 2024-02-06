@@ -1,13 +1,5 @@
-import {
-  Avatar,
-  IconButton,
-  Menu,
-  MenuHandler,
-  MenuItem,
-  MenuList,
-  Typography,
-} from "@material-tailwind/react";
-import { HiEllipsisVertical, HiPencil, HiTrash } from "react-icons/hi2";
+import { MenuItem, Typography } from "@material-tailwind/react";
+import { HiPencil, HiTrash } from "react-icons/hi2";
 import Table from "../../UI/Table";
 import { formatCurrency } from "../../utils/helpers";
 import { format } from "date-fns";

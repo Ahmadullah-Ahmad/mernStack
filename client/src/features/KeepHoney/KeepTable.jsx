@@ -62,7 +62,7 @@ function KeepTable() {
             ))}
           </Table.Body>
           <Table.Footer>
-            <Pagination count={count} />
+            <Pagination count={count} pageSize={7} />
           </Table.Footer>
         </Table>
         <Model.Window name={"EditKeep"}>

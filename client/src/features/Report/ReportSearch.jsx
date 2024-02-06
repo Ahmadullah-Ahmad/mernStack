@@ -4,11 +4,12 @@ import { Controller, useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 
 function ReportSearch() {
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, control, reset } = useForm();
   const [searchParams, setSearchParams] = useSearchParams();
   function handlSearch(data) {
     searchParams.set("date", JSON.stringify(data));
     setSearchParams(searchParams);
+    reset();
   }
   return (
     <>

@@ -17,7 +17,10 @@ function KeepRow({ item, borderKey }) {
 
   const honey = item.Extract?.reduce((pre, curr) => curr.amount + pre, 0);
 
-  const food = item.Food?.reduce((pre, curr) => curr.price + pre, 0);
+  const food = item.Food?.reduce(
+    (pre, curr) => curr.price * curr.quantity + pre,
+    0
+  );
   const total = food + item.rent;
 
   const { user } = useUser();

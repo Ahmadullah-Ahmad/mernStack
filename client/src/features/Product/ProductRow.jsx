@@ -16,6 +16,8 @@ function ProductRow({ item, borderKey }) {
   const { user } = useUser();
   const { Delete, isDeleting } = useDelete();
 
+  const price = (item.advantage * item.salePrice) / 100 + item.salePrice;
+  const advantage = ((item.advantage * item.salePrice) / 100) * item.quantity;
   const [openModel, setOpenModel] = useState(false);
   function deleteItem() {
     Delete(item.id);
@@ -57,7 +59,20 @@ function ProductRow({ item, borderKey }) {
         </td>
         <td className={`${className} capitalize `} dir="rtl">
           <Typography variant="small" className="flex  flex-col">
-            {formatCurrency(item.salePrice)}
+            {formatCurrency(advantage.toFixed(0))}
+          </Typography>
+        </td>
+        <td className={`${className} capitalize `} dir="rtl">
+          <Typography variant="small" className="flex relative flex-col">
+            {formatCurrency(parseInt(price).toFixed(0))}
+            <span className="absolute top-4 right-1 text-[10px] text-cyan-700 font-thin">
+              {parseInt(item.salePrice).toFixed(0)}
+            </span>
+          </Typography>
+        </td>
+        <td className={`${className} capitalize `} dir="rtl">
+          <Typography variant="small" className="flex  flex-col">
+            {item.advantage} {" % "}
           </Typography>
         </td>
         <td className={`${className} capitalize `} dir="rtl">

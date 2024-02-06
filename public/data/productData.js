@@ -331,12 +331,12 @@ export const englishProduct = [
 ];
 
 export const pashtoProduct = [
-  //شهت
+  //عسل
   // branch 1
   {
     id: 1,
-    name: "شهت 344",
-    type: "شهت",
+    name: "عسل وردکی",
+    type: "عسل",
     quantity: 25,
     salePrice: 200,
     description:
@@ -347,8 +347,8 @@ export const pashtoProduct = [
   },
   {
     id: 2,
-    name: "شهت 450",
-    type: "شهت",
+    name: "عسل بدخشی",
+    type: "عسل",
     quantity: 15,
     salePrice: 350,
     description:
@@ -359,8 +359,8 @@ export const pashtoProduct = [
   },
   {
     id: 3,
-    name: "ثهت 500",
-    type: "شهت",
+    name: "عسل ایرانی",
+    type: "عسل",
     quantity: 13,
     salePrice: 400,
     description:
@@ -371,8 +371,8 @@ export const pashtoProduct = [
   },
   {
     id: 4,
-    name: "شهت 600",
-    type: "شهت",
+    name: "عسل بیره",
+    type: "عسل",
     quantity: 33,
     salePrice: 600,
     description:
@@ -447,7 +447,7 @@ export const pashtoProduct = [
   //   بوتل
   {
     id: 10,
-    name: "لیتره 150",
+    name: "یک کیلویی",
     type: "بوتل",
     quantity: 15,
     salePrice: 10,
@@ -459,7 +459,7 @@ export const pashtoProduct = [
   },
   {
     id: 11,
-    name: "لیتره 50",
+    name: "پنجاه ګرام",
     type: "بوتل",
     quantity: 35,
     salePrice: 5,
@@ -471,7 +471,7 @@ export const pashtoProduct = [
   },
   {
     id: 12,
-    name: "لیتره 100",
+    name: "صد ګرام",
     type: "بوتل",
     quantity: 20,
     salePrice: 10,
@@ -510,8 +510,8 @@ export const pashtoProduct = [
   // branch 2
   {
     id: 15,
-    name: "شهت 344",
-    type: "شهت",
+    name: "عسل وردکی",
+    type: "عسل",
     quantity: 20,
     salePrice: 200,
     description:
@@ -522,8 +522,8 @@ export const pashtoProduct = [
   },
   {
     id: 16,
-    name: "شهت 450",
-    type: "شهت",
+    name: "عسل بدخشی",
+    type: "عسل",
     quantity: 10,
     salePrice: 350,
     description:
@@ -535,8 +535,8 @@ export const pashtoProduct = [
 
   {
     id: 17,
-    name: "شهت 600",
-    type: "شهت",
+    name: "عسل بیره",
+    type: "عسل",
     quantity: 25,
     salePrice: 600,
     description:
@@ -600,7 +600,7 @@ export const pashtoProduct = [
   //   بوتل
   {
     id: 22,
-    name: "لیتره 150",
+    name: "یک کیلویی",
     type: "بوتل",
     quantity: 12,
     salePrice: 10,
@@ -612,7 +612,7 @@ export const pashtoProduct = [
   },
   {
     id: 23,
-    name: "لیتره 50",
+    name: "پنجاه ګرام",
     type: "بوتل",
     quantity: 30,
     salePrice: 5,
@@ -624,7 +624,7 @@ export const pashtoProduct = [
   },
   {
     id: 24,
-    name: "لیتره 100",
+    name: "صد ګرام",
     type: "بوتل",
     quantity: 22,
     salePrice: 10,

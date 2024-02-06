@@ -12,7 +12,7 @@ const colums = [
   "تخفیف",
   "قیمت",
   "مقدار",
-  // "پرداخت",
+  "تاریخ",
   "مجموعه",
   "",
   "",
@@ -41,7 +41,7 @@ function SaleTable() {
                   <Typography
                     variant="small"
                     className={` font-semibold uppercase text-lg ${
-                      index === 8 ? "pr-2" : ""
+                      index === 7 ? "pr-2" : ""
                     }`}
                   >
                     {el}

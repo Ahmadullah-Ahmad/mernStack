@@ -3,7 +3,6 @@ import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
 import Chart from "react-apexcharts";
 
 import { useChartDarkMode } from "../../hooks/chartDarkMode";
-// import chartConfig from "../../utils/chartConfig";
 const chartsConfig = {
   chart: {
     toolbar: {
@@ -32,7 +31,7 @@ const chartsConfig = {
   },
   tooltip: {
     theme: "light",
-    style: { fontSize: "17px" },
+    style: { fontSize: "12px" },
   },
 };
 
@@ -52,14 +51,31 @@ function LineChart({ sale, purchase, numberDays }) {
   const saleData = allDates.map((date) => {
     return sale
       ?.filter((sale) => isSameDay(date, new Date(sale.createdAt)))
-      ?.reduce((pre, cur) => pre + cur?.price, 0);
+      ?.reduce(
+        (pre, cur) =>
+          pre +
+          (cur?.price - (cur?.price * cur?.discount) / 100) * cur.quantity,
+        0
+      );
   });
-
-  //All purchase for line Chart
+  //All sales for line Chart
   const purchaseData = allDates.map((date) => {
     return purchase
       ?.filter((purchase) => isSameDay(date, new Date(purchase.createdAt)))
-      ?.reduce((pre, cur) => pre + cur?.price, 0);
+      ?.reduce((pre, cur) => pre + cur?.price * cur.quantity, 0);
+  });
+  // All Profit for line Chart
+  const ProfitData = allDates.map((date) => {
+    return sale
+      ?.filter((sales) => isSameDay(date, new Date(sales.createdAt)))
+      ?.reduce(
+        (pre, cur) =>
+          pre +
+          (cur?.price - (cur?.price * cur?.discount) / 100).toFixed(0) *
+            cur.quantity -
+          cur.orignalPrice * cur.quantity,
+        0
+      );
   });
 
   const websiteViewsChart = {
@@ -73,6 +89,10 @@ function LineChart({ sale, purchase, numberDays }) {
       {
         name: "خریداری",
         data: purchaseData,
+      },
+      {
+        name: "فایده",
+        data: ProfitData,
       },
     ],
     colors: ["#4d41372b", "#713c71"],
@@ -113,5 +133,3 @@ function LineChart({ sale, purchase, numberDays }) {
 }
 
 export default LineChart;
-// sales from {format(allDates.at(0), "MMM dd yyyy")} to{" "}
-// {format(allDates.at(-1), "MMM dd yyyy")}

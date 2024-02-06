@@ -135,7 +135,7 @@ export const getOneCustomer = catchAsynC(async (req, res, next) => {
       {
         model: Purchase,
         as: "purchase",
-        attributes: ["id", "quantity", "createdAt", "price", "pay"],
+        attributes: ["id", "quantity", "createdAt", "price", "pay", "deadline"],
         limit: limit,
         offset: skip,
         left: true,

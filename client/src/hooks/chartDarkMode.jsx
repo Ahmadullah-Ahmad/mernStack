@@ -60,34 +60,3 @@ export function useChartDarkMode() {
 
   return { style, legendColor, fillColor };
 }
-
-/*
-to use The defaull DarkMode
-const { isDark } = useDarkMode();
-
-  const legendColor = { colors: isDark ? "#fff" : "#000" };
-  const theme = { mode: isDark ? "dark" : "light" };
-  const fillColor = isDark
-    ? {
-        colors: [
-          "#4ecdc4",
-          "#c7f464",
-          "#81d4fa",
-          "#fd6a6a",
-          "#869ca7",
-          "#22c55e",
-        ],
-      }
-    : {
-        colors: [
-          "#008ffb",
-          "#58ffc5",
-          "#bb800d",
-          "#ff4560",
-          "#775dd0",
-          "#22d3ee",
-        ],
-      };
-
-  return { legendColor, theme, fillColor };
-*/

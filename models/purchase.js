@@ -34,6 +34,10 @@ const purchaseModel = sequelize.define("purchase", {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+  deadline: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
 });
 
 purchaseModel.addHook("beforeValidate", (value) => {

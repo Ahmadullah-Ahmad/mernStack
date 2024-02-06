@@ -1,16 +1,12 @@
 import axios from "axios";
 import { getToken } from "../utils/getToken";
-import { getToday } from "../utils/helpers";
 import { URL } from "../utils/constant";
 
 export async function dashboardData({ queryDate }) {
   try {
-    const data = await axios.get(
-      `${URL}api/v1/dashboard/?start=${queryDate}&end=${getToday()}`,
-      {
-        headers: { Authorization: getToken("jwt") },
-      }
-    );
+    const data = await axios.get(`${URL}api/v1/dashboard/?start=${queryDate}`, {
+      headers: { Authorization: getToken("jwt") },
+    });
     return {
       product: data.data.product,
       sales: data.data.sales,

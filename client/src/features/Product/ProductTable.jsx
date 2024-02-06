@@ -7,7 +7,16 @@ import { useProducts } from "./useGetProducts";
 import Model from "../../UI/Model";
 import { useSearchParams } from "react-router-dom";
 import Empty from "../../UI/Empty";
-const header = ["نام", "نوع", "مقدار", "فرش", "خرید", ""].reverse();
+const header = [
+  "نام",
+  "نوع",
+  "مقدار",
+  "فصدی",
+  "فرش",
+  "فایده",
+  "خرید",
+  "",
+].reverse();
 
 function ProductTable() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,7 +45,7 @@ function ProductTable() {
                 <Typography
                   variant="small"
                   className={`font-extrabold text-xl  ${
-                    index === 5 ? "pr-2" : ""
+                    index === 7 ? "pr-2" : ""
                   }`}
                 >
                   {el}

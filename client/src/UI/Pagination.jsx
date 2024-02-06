@@ -25,7 +25,7 @@ export default function Pagination({ count, pageSize }) {
   }
   if (pageCount <= 1) return null;
   return (
-    <td colSpan={8} className="py-2 dark:bg-transparent  ">
+    <td colSpan={10} className="py-2 dark:bg-transparent  ">
       <div className="flex flex-row darkModeBottom items-center gap-x-14 justify-center ">
         <IconButton
           size="sm"

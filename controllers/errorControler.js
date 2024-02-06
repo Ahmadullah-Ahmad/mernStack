@@ -1,4 +1,4 @@
-import appErorr from "../utils/appError.js";
+import AppErorr from "../utils/appError.js";
 
 const JsonWebTokenError = () => {
   return new AppErorr("شما به سیستم داخل نشد", 401);
@@ -9,7 +9,7 @@ const JsonWebTokenExpired = () => {
 
 function SequelizeValidationError(err) {
   const error = err.message.split(":")[1];
-  return new appErorr(error, 400);
+  return new AppErorr(error, 400);
 }
 
 function SequelizeUniqueConstraintError(err) {
@@ -20,7 +20,7 @@ function SequelizeUniqueConstraintError(err) {
   if (err.errors[0].path === "compositeKey") {
     error = "این معلومات موجود است";
   }
-  if (err.message) return new appErorr(error, 400);
+  if (err.message) return new AppErorr(error, 400);
 }
 
 function DevelopmentError(err, res) {

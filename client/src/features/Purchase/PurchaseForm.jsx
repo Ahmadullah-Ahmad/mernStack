@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useAddPurchase } from "./useCreatePurchase";
 import { useEditPurchase } from "./useEditPurchase";
+import { useState } from "react";
 
 function PurchaseForm({ close, formData: purchase = {} }) {
   const { id: editId, ...editValue } = purchase;
@@ -26,11 +27,12 @@ function PurchaseForm({ close, formData: purchase = {} }) {
   const { EditPurchase, isEditting } = useEditPurchase();
   const queryClient = useQueryClient();
 
+  const [hideDeadline, setHideDeadline] = useState(
+    isEidtSession ? editValue.pay : false
+  );
   function handleFormSubmit(data) {
-    console.log(data);
     if (isEidtSession) {
       data.id = editId;
-      console.log(data);
       EditPurchase(
         { data },
         {
@@ -143,6 +145,7 @@ function PurchaseForm({ close, formData: purchase = {} }) {
             type="number"
             className="dark:text-white"
             label="مقدار جنس"
+            min={0}
             {...register("quantity", {
               required: "The quantity is required",
               valueAsNumber: "Only number",
@@ -151,13 +154,14 @@ function PurchaseForm({ close, formData: purchase = {} }) {
           />
         </div>
 
-        <div className="pt-2 pb-1">
+        <div className="pt-2 ">
           <Input
             dir="rtl"
             color="light-blue"
             type="number"
             className="dark:text-white"
             label="قیمت جنس"
+            min={0}
             {...register("price", {
               required: "The Material count is required",
             })}
@@ -166,10 +170,10 @@ function PurchaseForm({ close, formData: purchase = {} }) {
           {errors?.root?.message}
         </div>
 
-        <div className="py-2 flex relative justify-end">
+        <div className=" flex relative justify-end">
           <Checkbox
             label={
-              <Typography className="absolute top-4 right-10 dark:text-white items-center text-lg">
+              <Typography className="absolute top-2 right-10 dark:text-white items-center text-lg">
                 تادیه
               </Typography>
             }
@@ -177,9 +181,20 @@ function PurchaseForm({ close, formData: purchase = {} }) {
             value={true}
             {...register("pay")}
             color="blue"
+            onClick={() => setHideDeadline((el) => !el)}
           />
         </div>
-
+        {hideDeadline ? null : (
+          <>
+            <div className="mb-3">
+              <Input
+                type="date"
+                {...register("deadline")}
+                label="تاریخ پرداخت قرضه"
+              />
+            </div>
+          </>
+        )}
         <div className="flex items-center justify-end">
           <div className="px-3">
             <Button

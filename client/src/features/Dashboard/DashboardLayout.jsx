@@ -30,6 +30,7 @@ function DashboardLayout() {
       pre + (cur?.price - (cur?.price * cur?.discount) / 100) * cur.quantity,
     0
   );
+
   // total honey
   const totalHoney = data?.product
     ?.filter((el) => el?.type === "شهت" || el?.type === "عسل")

@@ -118,7 +118,7 @@ export const pashtoUsers = [
     confirmPassword: "ahmadi11",
     role: "manager",
     photo: "default.jpg",
-    branchId: 3,
+    branchId: 2,
   },
   {
     id: 6,
@@ -128,6 +128,6 @@ export const pashtoUsers = [
     confirmPassword: "ahmadi11",
     role: "user",
     photo: "default.jpg",
-    branchId: 3,
+    branchId: 1,
   },
 ];

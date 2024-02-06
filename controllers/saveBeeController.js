@@ -52,7 +52,7 @@ export const getOneBeeSave = catchAsynC(async (req, res, next) => {
   });
 });
 export const getAllBeeSave = catchAsynC(async (req, res, next) => {
-  const limit = req.query.limit * 1 || 8;
+  const limit = req.query.limit * 1 || 7;
   const page = req.query.page * 1 || 1;
   const skip = (page - 1) * limit;
   const where = {};
@@ -74,7 +74,7 @@ export const getAllBeeSave = catchAsynC(async (req, res, next) => {
       {
         model: Food,
         as: "Food",
-        attributes: ["id", "price"],
+        attributes: ["id", "price", "quantity"],
       },
       {
         model: HoneyExtract,

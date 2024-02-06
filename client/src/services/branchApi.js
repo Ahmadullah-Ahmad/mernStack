@@ -32,7 +32,6 @@ export async function AddBranch({ branch }) {
 
 export async function editBranchApi({ data }) {
   const { id } = data;
-  console.log(data);
   try {
     const editSales = await axios.patch(
       `${URL}api/v1/branch/${id}`,

@@ -16,6 +16,7 @@ function FoodRow({ item, borderKey, keepId }) {
   const { user } = useUser();
   const [openModel, setOpenModel] = useState(false);
   const { Delete, isDeleting } = useDelete();
+  const total = item.quantity * item.price;
   const deleteObj = { id: item?.id, keepId };
   function deleteItem() {
     Delete(deleteObj);
@@ -54,6 +55,11 @@ function FoodRow({ item, borderKey, keepId }) {
         <td className={`${className} capitalize`}>
           <Typography variant="small">
             {format(new Date(item?.createdAt), "yyyy-MM-dd")}
+          </Typography>
+        </td>
+        <td className={`${className} capitalize`}>
+          <Typography variant="small" dir="rtl">
+            {formatCurrency(total)}
           </Typography>
         </td>
         <td className={`${className} capitalize `} dir="rtl">

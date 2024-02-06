@@ -81,6 +81,7 @@ function HoneyForm({ close, formData: sales = {} }) {
             type="number"
             className="dark:text-white "
             label="قیمت جنس"
+            min={0}
             {...register("price", {
               required: "The product name is required",
             })}
@@ -93,6 +94,8 @@ function HoneyForm({ close, formData: sales = {} }) {
             color="light-blue"
             className="dark:text-white "
             type="number"
+            min={0}
+            max={100}
             label="تخفیف"
             {...register("discount", {
               required: "The product discount is required",
@@ -132,6 +135,7 @@ function HoneyForm({ close, formData: sales = {} }) {
             dir="rtl"
             color="light-blue"
             type="number"
+            min={0}
             className="dark:text-white "
             label="مقدار جنس"
             {...register("quantity", {

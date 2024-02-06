@@ -7,7 +7,7 @@ import FoodForm from "./FoodForm";
 import Empty from "../../UI/Empty";
 import { useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-const FoodHeader = ["نام", "مقدار", "قیمت", "تاریخ", ""].reverse();
+const FoodHeader = ["نام", "مقدار", "قیمت", "مجموعه", "تاریخ", ""].reverse();
 
 function FoodTable({ Food, keepId }) {
   const [start, setStart] = useState(0);
@@ -44,7 +44,7 @@ function FoodTable({ Food, keepId }) {
                 <Typography
                   variant="small"
                   className={`font-semibold text-lg uppercase ${
-                    index === 4 ? "pr-2" : ""
+                    index === 5 ? "pr-2" : ""
                   }`}
                 >
                   {el}

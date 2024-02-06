@@ -15,16 +15,17 @@ export const addSale = catchAsynC(async (req, res, next) => {
     const product = await Product.findByPk(req.body.productId, {
       transaction: tran,
     });
+    req.body.orignalPrice = product.salePrice;
+    console.log(req.body);
+    // await Product.update(
+    //   {
+    //     quantity: product.quantity - req.body.quantity,
+    //   },
+    //   { where: { id: product.id } },
+    //   { transaction: tran }
+    // );
 
-    await Product.update(
-      {
-        quantity: product.quantity - req.body.quantity,
-      },
-      { where: { id: product.id } },
-      { transaction: tran }
-    );
-
-    return await req.branch.createSale(req.body, { transaction: tran });
+    // return await req.branch.createSale(req.body, { transaction: tran });
   });
   res.status(200).json({
     status: "success",
@@ -70,6 +71,7 @@ export const updateSales = catchAsynC(async (req, res, next) => {
       { where: { id: product1.id } },
       { transaction: tran }
     );
+    req.body.orignalPrice = product1.salePrice;
     return await Sales.update(
       req.body,
       { where: { id: req.params.id } },
@@ -165,15 +167,8 @@ export const getAllSales = catchAsynC(async (req, res, next) => {
   const sort = req.query.sort === "null" ? "id-asc" : req.query.sort;
 
   const [feild, direction] = sort?.split("-");
-  console.log(feild);
   if (sort) {
-    // if (feild === "price") {
-    //   const sale = "salePrice";
-
-    //   options.order.push([Product, sale, direction]);
-    // } else {
     options.order.push([feild, direction]);
-    // }
   }
   // filtering
   const type = req.query.type === "null" ? undefined : req.query.type;

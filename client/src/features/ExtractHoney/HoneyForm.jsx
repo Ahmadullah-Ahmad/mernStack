@@ -75,6 +75,7 @@ function HoneyForm({ close, formData: extract = {}, keepId }) {
           <Input
             color="light-blue"
             type="number"
+            min={0}
             dir="rtl"
             label="مقدار را داخل کنید"
             className="dark:text-white"

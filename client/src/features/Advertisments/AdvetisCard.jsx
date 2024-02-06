@@ -3,7 +3,6 @@ import { HiOutlineArrowLeft } from "react-icons/hi2";
 import { URL } from "../../utils/constant";
 import { NavLink } from "react-router-dom";
 function AdvetisCard({ item }) {
-  console.log(URL + item.photo);
   return (
     <Card
       color="transparent"

@@ -4,7 +4,6 @@ import { fileURLToPath } from "url";
 import errorControler from "./controllers/errorControler.js";
 import cors from "cors";
 import compression from "compression";
-import helmet from "helmet";
 
 // import Routers
 import userRouter from "./routers/userRouter.js";
@@ -36,8 +35,8 @@ import purchaseModel from "./models/purchase.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-// app.use(compression());
-// app.use(helmet());
+app.use(compression());
+
 const currentModulePath = fileURLToPath(import.meta.url);
 const currentDirPath = dirname(currentModulePath);
 

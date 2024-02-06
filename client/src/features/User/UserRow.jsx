@@ -40,27 +40,33 @@ function BranchRow({ item, borderKey }) {
     <>
       <Table.Row>
         <td className={`${className} `}>
-          <MenuLists>
-            <MenuItem
-              onClick={() => setOpenModel((el) => !el)}
-              className="flex items-center text-red-300 hover:text-red-300"
-            >
-              <HiTrash size={20} className="" />
-              <Typography className="px-4 font-semibold uppercase  ">
-                حذب کردن
-              </Typography>
-            </MenuItem>
-            <div>
-              <Model.Open open={"userEdit"} formData={EditObj}>
-                <MenuItem className="flex items-center ">
-                  <HiPencil size={20} className="" />
+          {item.role === "admin" ? (
+            ""
+          ) : (
+            <MenuLists>
+              <>
+                <MenuItem
+                  onClick={() => setOpenModel((el) => !el)}
+                  className="flex items-center text-red-300 hover:text-red-300"
+                >
+                  <HiTrash size={20} className="" />
                   <Typography className="px-4 font-semibold uppercase  ">
-                    تعغیر کردن
+                    حذب کردن
                   </Typography>
                 </MenuItem>
-              </Model.Open>
-            </div>
-          </MenuLists>
+                <div>
+                  <Model.Open open={"userEdit"} formData={EditObj}>
+                    <MenuItem className="flex items-center ">
+                      <HiPencil size={20} className="" />
+                      <Typography className="px-4 font-semibold uppercase  ">
+                        تعغیر کردن
+                      </Typography>
+                    </MenuItem>
+                  </Model.Open>
+                </div>
+              </>
+            </MenuLists>
+          )}
         </td>
         <td className={`${className} capitalize hidden   md:block`}>
           <Typography variant="small" className="text-lg">

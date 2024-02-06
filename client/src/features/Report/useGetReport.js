@@ -18,7 +18,6 @@ export function useReport() {
     start = search.from;
     end = search.to;
   }
-
   const { data, isLoading } = useQuery({
     queryKey: ["report", type, start, end],
     queryFn: () => ReportData({ type, start, end }),

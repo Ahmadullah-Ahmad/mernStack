@@ -3,7 +3,7 @@ import sequelize from "../utils/Database.js";
 
 const salesModel = sequelize.define("sale", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  discount: { type: DataTypes.INTEGER },
+  discount: { type: DataTypes.INTEGER, defaultValue: 0 },
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -21,6 +21,12 @@ const salesModel = sequelize.define("sale", {
         msg: "لطفا قیمت داخل کنید",
       },
     },
+  },
+  orignalPrice: { type: DataTypes.INTEGER },
+  advantage: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
   },
   pay: {
     type: DataTypes.BOOLEAN,

@@ -86,6 +86,7 @@ function FoodForm({ close, formData: food = {}, keepId }) {
             type="number"
             className="dark:text-white "
             label="قیمت غذا"
+            min={0}
             {...register("price", {
               required: "The price is required",
             })}

@@ -11,15 +11,8 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import {
-  HiCheck,
-  HiEye,
-  HiEyeSlash,
-  HiOutlineEye,
-  HiOutlineEyeSlash,
-} from "react-icons/hi2";
+import { HiOutlineEye, HiOutlineEyeSlash } from "react-icons/hi2";
 import { useAddUser } from "./useCreateUser";
-import { useBranchs } from "../Branch/useGetBranches";
 import toast from "react-hot-toast";
 import { useBranchAll } from "../Branch/useAllBranches";
 import { useEditUser } from "./useEditUser";
@@ -45,7 +38,6 @@ function BranchForm({ close, formData: user = {} }) {
 
   function handleFormSubmit(data) {
     if (isEidtSession) {
-      console.log(user, data);
       let updateUser = {
         id: editId,
         branchId: data.branchId,

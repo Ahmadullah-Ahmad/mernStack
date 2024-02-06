@@ -8,6 +8,7 @@ import { formatCurrency, formatQuantity } from "../../utils/helpers";
 import { useDelete } from "./useDeleteSale";
 import { useUser } from "../Authentication/useUser";
 import MenuLists from "../../UI/MenuLists";
+import { format } from "date-fns";
 
 function SaleRow({ item, borderKey }) {
   const className = ` darkModeMiddle ${
@@ -65,16 +66,14 @@ function SaleRow({ item, borderKey }) {
         <td className={`${className} `} dir="rtl">
           <Typography variant="small">{formatCurrency(total)} </Typography>
         </td>
-        {/* <td className={`${className} capitalize  `}>
+        <td className={`${className} capitalize  `}>
           <Typography
             variant="small"
-            className={`text-lg ${
-              item.pay ? "text-blue-500" : "text-light-blue-800"
-            }`}
+            // className={`text-lg ‍‍‍}
           >
-            {item.pay ? "نغد" : "قرض"}
+            {format(new Date(item.createdAt), "yyyy-MM-dd")}
           </Typography>
-        </td> */}
+        </td>
         <td className={`${className} capitalize `} dir="rtl">
           <Typography variant="small">
             {formatQuantity(item.quantity)}

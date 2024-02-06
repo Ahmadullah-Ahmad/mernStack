@@ -12,15 +12,15 @@ function AccountCard() {
       </div>
     );
   return (
-    <Card className="h-full rounded-sm w-full p-1 md:grid md:grid-cols-[0.3fr_1fr] gap-x-6 darkModeTop  bg-gray-300 ">
-      <div className="flex items-center justify-center  mx-auto">
+    <Card className="h-full rounded-sm w-full p-1 flex md:flex-row justify-evenly gap-x-6 darkModeTop  bg-gray-300 ">
+      <div className="flex items-center justify-center  ">
         <img
           src={URL + user?.photo || "/default.jpg"}
           alt="User"
           className="self-center rounded-md md:w-full h-60 fill-current shadow-sm"
         />
       </div>
-      <div className="flex flex-col md:mt-14  items-center ">
+      <div className="flex flex-col md:mt-8 mt-3  items-center ">
         <div className="items-center text-right">
           <div>
             <Typography variant="lead" className="font-semibold">
